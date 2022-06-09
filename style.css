@@ -1,9 +1,10 @@
 .container {
+  font-family: 'Poppins', sans-serif;
   display: grid;
   grid-template-areas: "header" "options" "results" "again";
   grid-template-columns: auto;
   grid-template-rows: 1fr;
-  gap: 15px;
+  gap: 1vw;
   justify-items: center;
 }
 
@@ -16,7 +17,7 @@ h1 {
 
 #options {
   grid-area: options;
-  gap: 10px;
+  gap: 5vw;
   display: flex;
 }
 
@@ -27,6 +28,10 @@ h1 {
 
 #restart {
   grid-area: again;
+}
+
+#rock:hover, #paper:hover, #scissors:hover {
+  cursor: pointer;
 }
 
 #choice,
@@ -43,9 +48,9 @@ h1 {
 
 @media only screen and (max-width: 640px) {
     h1 {
-        font-size: 8vw;
+        font-size: 10vw;
     }
     .icon {
-        font-size: 10vw;
+        font-size: 12vw;
     }
 }
