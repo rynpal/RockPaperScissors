@@ -1,0 +1,56 @@
+.container {
+  font-family: 'Poppins', sans-serif;
+  display: grid;
+  grid-template-areas: "header" "options" "results" "again";
+  grid-template-columns: auto;
+  grid-template-rows: 1fr;
+  gap: 1vw;
+  justify-items: center;
+}
+
+h1 {
+  grid-area: header;
+  margin-top: 20vh;
+  font-size: 24px;
+  font-size: 5vw;
+}
+
+#options {
+  grid-area: options;
+  gap: 5vw;
+  display: flex;
+}
+
+#results {
+  grid-area: results;
+  display: flex;
+}
+
+#restart {
+  grid-area: again;
+}
+
+#rock:hover, #paper:hover, #scissors:hover {
+  cursor: pointer;
+}
+
+#choice,
+#response,
+#countdown,
+#restart {
+  display: none;
+}
+
+.icon {
+   font-size: 64px; 
+   font-size: 6vw;
+}
+
+@media only screen and (max-width: 640px) {
+    h1 {
+        font-size: 10vw;
+    }
+    .icon {
+        font-size: 12vw;
+    }
+}
