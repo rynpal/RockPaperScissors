@@ -1,0 +1,51 @@
+.container {
+  display: grid;
+  grid-template-areas: "header" "options" "results" "again";
+  grid-template-columns: auto;
+  grid-template-rows: 1fr;
+  gap: 15px;
+  justify-items: center;
+}
+
+h1 {
+  grid-area: header;
+  margin-top: 20vh;
+  font-size: 24px;
+  font-size: 5vw;
+}
+
+#options {
+  grid-area: options;
+  gap: 10px;
+  display: flex;
+}
+
+#results {
+  grid-area: results;
+  display: flex;
+}
+
+#restart {
+  grid-area: again;
+}
+
+#choice,
+#response,
+#countdown,
+#restart {
+  display: none;
+}
+
+.icon {
+   font-size: 64px; 
+   font-size: 6vw;
+}
+
+@media only screen and (max-width: 640px) {
+    h1 {
+        font-size: 8vw;
+    }
+    .icon {
+        font-size: 10vw;
+    }
+}
