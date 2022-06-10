@@ -6,6 +6,8 @@ const responses = [rock, paper, scissors];
 
 const shooters = $(".shooter");
 const countdown = $("#countdown");
+let choice = null;
+let response = null;
 
 function respond(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
@@ -37,8 +39,12 @@ function cycleText(cd) {
   }, 1100);
 }
 
-shooters.click(() => {
+function runGame() {
   fadeShooters(shooters);
   countdown.toggle();
   cycleText(countdown);
+}
+
+shooters.click(() => {
+  runGame();
 });
