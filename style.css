@@ -35,7 +35,6 @@ p {
 #restart {
   grid-area: again;
   font-family: inherit;
-  margin-top: 1rem;
 }
 
 #rock:hover, #paper:hover, #scissors:hover, #restart:hover {

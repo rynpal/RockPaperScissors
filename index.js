@@ -1,7 +1,9 @@
 $(document).ready(() => {
-  localStorage.wins = 0;
-  localStorage.losses = 0;
-  localStorage.draws = 0;
+  if (!localStorage.wins || !localStorage.losses || !localStorage.draws) {
+    localStorage.wins = 0;
+    localStorage.losses = 0;
+    localStorage.draws = 0;
+  }
   setWLD();
 });
 
