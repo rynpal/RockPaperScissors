@@ -55,6 +55,13 @@ p {
    text-align: center;
 }
 
+#record {
+  position: fixed;
+  top: 5px;
+  right: 5px;
+  text-align: center;
+}
+
 @media only screen and (max-width: 640px) {
     h1 {
         font-size: 10vw;

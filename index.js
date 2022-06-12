@@ -1,3 +1,10 @@
+$(document).ready(() => {
+  localStorage.wins = 0;
+  localStorage.losses = 0;
+  localStorage.draws = 0;
+  setWLD();
+});
+
 const rock = $("#rock").text();
 const paper = $("#paper").text();
 const scissors = $("#scissors").text();
@@ -7,8 +14,14 @@ const responses = [rock, paper, scissors];
 const shooters = $(".shooter");
 const countdown = $("#countdown");
 const restart = $("#restart");
+const reset = $("#recordReset");
+
 let choice = null;
 let response = null;
+
+const win = "YOU WON!";
+const lose = "YOU LOST!";
+const draw = "DRAW!";
 
 function respond(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
@@ -27,13 +40,13 @@ function resultText(c, r) {
   if (c == rock) {
     switch (r) {
       case rock:
-        text = "DRAW!";
+        text = draw;
         break;
       case paper:
-        text = "YOU LOST!";
+        text = lose;
         break;
       case scissors:
-        text = "YOU WON!";
+        text = win;
         break;
       default:
         break;
@@ -42,13 +55,13 @@ function resultText(c, r) {
   if (c == paper) {
     switch (r) {
       case rock:
-        text = "YOU WON!";
+        text = win;
         break;
       case paper:
-        text = "DRAW!";
+        text = draw;
         break;
       case scissors:
-        text = "YOU LOST!";
+        text = lose;
         break;
       default:
         break;
@@ -57,18 +70,28 @@ function resultText(c, r) {
   if (c == scissors) {
     switch (r) {
       case rock:
-        text = "YOU LOST!";
+        text = lose;
         break;
       case paper:
-        text = "YOU WON!";
+        text = win;
         break;
       case scissors:
-        text = "DRAW!";
+        text = draw;
         break;
       default:
         break;
     }
   }
+  if (text == win) {
+    localStorage.wins = parseInt(localStorage.wins) + 1;
+  } else if (text == lose) {
+    localStorage.losses = parseInt(localStorage.losses) + 1;
+  } else {
+    localStorage.draws = parseInt(localStorage.draws) + 1;
+  }
+
+  setWLD();
+
   return text;
 }
 
@@ -122,3 +145,16 @@ shooters.click((e) => {
 restart.click(() => {
   playAgain(countdown);
 });
+
+reset.click(() => {
+  localStorage.wins = 0;
+  localStorage.losses = 0;
+  localStorage.draws = 0;
+  setWLD();
+});
+
+function setWLD() {
+  $("#wld").text(
+    `${localStorage.wins}-${localStorage.losses}-${localStorage.draws}`
+  );
+}
