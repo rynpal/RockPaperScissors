@@ -1,8 +1,9 @@
-const rock = "🗿";
-const paper = "📄";
-const scissors = "✂";
+const rock = $("#rock").text();
+const paper = $("#paper").text();
+const scissors = $("#scissors").text();
 
 const responses = [rock, paper, scissors];
+console.log(responses);
 
 const shooters = $(".shooter");
 const countdown = $("#countdown");
@@ -22,22 +23,22 @@ function changeText(cd, str) {
   cd.text(str);
 }
 
+function resultText(c, r) {
+  return `${c} beats ${r}?`;
+}
+
 function displayResults(cd, c, r) {
   cd.text(c + " vs. " + r);
+  setTimeout(() => {
+    cd.append(`<p>${resultText(c, r)}</p>`);
+  }, 400);
 }
 
-function resultText(c, r) {
-  if (c == rock) {
-    console.log("You picked rock");
-  } else if (c == paper) {
-    console.log("You picked paper");
-  } else {
-    console.log("You picked scissors");
-  }
-}
-
-function playAgain() {
-  console.log("clicked play again");
+function playAgain(cd) {
+  changeText(cd, "");
+  cd.toggle();
+  shooters.toggle();
+  restart.toggle();
 }
 
 function cycleText(cd, c, r) {
@@ -52,11 +53,8 @@ function cycleText(cd, c, r) {
           setTimeout(() => {
             displayResults(cd, c, r);
             setTimeout(() => {
-              resultText(c, r);
-              setTimeout(() => {
-                restart.toggle();
-              }, 400);
-            }, 200);
+              restart.toggle();
+            }, 800);
           }, 400);
         }, 400);
       }, 400);
@@ -77,5 +75,5 @@ shooters.click((e) => {
 });
 
 restart.click(() => {
-  playAgain();
+  playAgain(countdown);
 });
