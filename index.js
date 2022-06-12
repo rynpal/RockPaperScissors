@@ -3,7 +3,6 @@ const paper = $("#paper").text();
 const scissors = $("#scissors").text();
 
 const responses = [rock, paper, scissors];
-console.log(responses);
 
 const shooters = $(".shooter");
 const countdown = $("#countdown");
@@ -24,7 +23,53 @@ function changeText(cd, str) {
 }
 
 function resultText(c, r) {
-  return `${c} beats ${r}?`;
+  let text = "";
+  if (c == rock) {
+    switch (r) {
+      case rock:
+        text = "DRAW!";
+        break;
+      case paper:
+        text = "YOU LOST!";
+        break;
+      case scissors:
+        text = "YOU WON!";
+        break;
+      default:
+        break;
+    }
+  }
+  if (c == paper) {
+    switch (r) {
+      case rock:
+        text = "YOU WON!";
+        break;
+      case paper:
+        text = "DRAW!";
+        break;
+      case scissors:
+        text = "YOU LOST!";
+        break;
+      default:
+        break;
+    }
+  }
+  if (c == scissors) {
+    switch (r) {
+      case rock:
+        text = "YOU LOST!";
+        break;
+      case paper:
+        text = "YOU WON!";
+        break;
+      case scissors:
+        text = "DRAW!";
+        break;
+      default:
+        break;
+    }
+  }
+  return text;
 }
 
 function displayResults(cd, c, r) {
