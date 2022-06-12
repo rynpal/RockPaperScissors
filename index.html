@@ -19,17 +19,26 @@
     <div class="container">
       <h1>Let's play!</h1>
       <div id="options">
-        <div id="rock" class="icon">🗿</div>
-        <div id="paper" class="icon">📄</div>
-        <div id="scissors" class="icon">✂</div>
+        <div id="rock" class="icon shooter">🗿</div>
+        <div id="paper" class="icon shooter">📄</div>
+        <div id="scissors" class="icon shooter">✂</div>
         <div id="choice" class="icon"></div>
         <div id="response" class="icon"></div>
       </div>
       <div id="results">
         <div id="countdown"></div>
+        <div id="record">
+          <div id="wld"></div>
+          <button id="recordReset">Reset Record</button>
+        </div>
       </div>
-      <div id="restart">Play again?</div>
+      <button id="restart">Play again?</button>
     </div>
   </body>
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"
+  ></script>
   <script src="index.js"></script>
 </html>
